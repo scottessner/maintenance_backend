@@ -125,15 +125,14 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, '../static'))
 
-# CORS_ORIGIN_WHITELIST = [
-#     'api.maintenance.ssessner.com',
-#     'localhost:4200'
-# ]
+CORS_ORIGIN_WHITELIST = [
+    'maintenance.ssessner.com',
+]
 
-# from corsheaders.defaults import default_headers
-# CORS_ALLOW_HEADERS = default_headers + (
-#     'Access-Control-Allow-Origin',
-# )
+from corsheaders.defaults import default_headers
+CORS_ALLOW_HEADERS = default_headers + (
+    'Access-Control-Allow-Origin',
+)
 
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',)
