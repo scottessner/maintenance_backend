@@ -4,8 +4,8 @@ import random
 
 REPO_URL = 'https://github.com/scottessner/maintenance_backend.git'
 
-def deploy():
-    site_folder = '/home/{0}/sites/{1}'.format(env.user, env.host)
+def deploy(sitename):
+    site_folder = '/home/{0}/sites/{1}'.format(env.user, sitename)
     source_folder = site_folder + '/source'
     _create_directory_structure_if_necessary(site_folder)
     _get_latest_source(source_folder)
