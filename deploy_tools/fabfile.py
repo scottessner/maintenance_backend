@@ -32,6 +32,9 @@ def _update_settings(source_folder, site_name):
     sed(settings_path, 
         'ALLOWED_HOSTS = .+$',
         'ALLOWED_HOSTS = ["{0}"]'.format(site_name))
+    sed(settings_path,
+        'database/db.sqlite3',
+        '../database/db.sqlite3')
     secret_key_file = source_folder + '/maintenance_backend/secret_key.py'
     if not exists(secret_key_file):
         chars = 'abcedfghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
