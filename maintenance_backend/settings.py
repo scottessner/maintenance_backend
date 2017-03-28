@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'maintenance_backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, '../database/db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'database/db.sqlite3'),
     }
 }
 
@@ -127,6 +127,7 @@ STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, '../static'))
 
 CORS_ORIGIN_WHITELIST = [
     'maintenance.ssessner.com',
+    'localhost:4200',
 ]
 
 from corsheaders.defaults import default_headers

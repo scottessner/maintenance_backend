@@ -42,4 +42,4 @@ class FillUp(models.Model):
         return self.distance/self.quantity
 
     class Meta:
-        ordering = ('datetime',)
+        ordering = ('-datetime',)
