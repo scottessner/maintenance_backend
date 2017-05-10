@@ -28,11 +28,11 @@ class RepairSerializer(serializers.ModelSerializer):
         fields = ('url', 'id', 'car', 'odometer', 'description', 'price', 'datetime')
 
     def create(self, validated_data):
-        return FillUp.objects.create(**validated_data)
+        return Repair.objects.create(**validated_data)
 
     def update(self, instance, validated_data):
         instance.odometer = validated_data.get('odometer', instance.odometer)
-        instance.distance = validated_data.get('description', instance.description)
+        instance.description = validated_data.get('description', instance.description)
         instance.price = validated_data.get('price', instance.price)
         instance.datetime = validated_data.get('datetime', instance.datetime)
         instance.save()

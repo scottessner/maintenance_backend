@@ -49,7 +49,7 @@ class Repair(models.Model):
     car = models.ForeignKey(Car, related_name='repairs', on_delete=models.CASCADE)
     odometer = models.DecimalField(max_digits=7, decimal_places=1)
     description = models.CharField(max_length=200)
-    price = models.DecimalField(max_digits=4, decimal_places=3)
+    price = models.DecimalField(max_digits=6, decimal_places=2)
     datetime = models.DateTimeField()
 
     class Meta:
