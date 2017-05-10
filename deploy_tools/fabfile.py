@@ -2,6 +2,11 @@ from fabric.contrib.files import append, exists, sed
 from fabric.api import env, local, run
 import random
 
+# For use:
+# Navigate to the deploy_tools folder
+# Run: fab deploy:sitename=api.maintenance.ssessner.com
+# When prompted for host use: bernadette
+
 REPO_URL = 'https://github.com/scottessner/maintenance_backend.git'
 
 def deploy(sitename):

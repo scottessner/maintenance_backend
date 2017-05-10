@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from maintenance.models import Car, FillUp
+from maintenance.models import Car, FillUp, Repair
 
 
 class FillupSerializer(serializers.ModelSerializer):
@@ -16,6 +16,24 @@ class FillupSerializer(serializers.ModelSerializer):
         instance.distance = validated_data.get('distance', instance.distance)
         instance.price = validated_data.get('price', instance.price)
         instance.quantity = validated_data.get('quantity', instance.quantity)
+        instance.datetime = validated_data.get('datetime', instance.datetime)
+        instance.save()
+        return instance
+
+
+class RepairSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Repair
+        fields = ('url', 'id', 'car', 'odometer', 'description', 'price', 'datetime')
+
+    def create(self, validated_data):
+        return FillUp.objects.create(**validated_data)
+
+    def update(self, instance, validated_data):
+        instance.odometer = validated_data.get('odometer', instance.odometer)
+        instance.distance = validated_data.get('description', instance.description)
+        instance.price = validated_data.get('price', instance.price)
         instance.datetime = validated_data.get('datetime', instance.datetime)
         instance.save()
         return instance
